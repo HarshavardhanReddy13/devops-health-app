@@ -26,12 +26,12 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: |
+        run: PYTHONPATH=. pytest tests/ -v
           pip install -r requirements.txt
           pip install pytest
 
       - name: Run tests
-        run: pytest tests/ -v
+        run: 
 
   # ── Job 2: Build & push Docker image (only on main branch) ────────────────
   build-and-push:
